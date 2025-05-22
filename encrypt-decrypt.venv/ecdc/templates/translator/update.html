@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ translation['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="translation">
+    <label for="title">Title</label>
+    <input name="title" id="title"
+      value="{{ request.form['title'] or translation['title'] }}" required>
+    <label for="body">Body</label>
+    <textarea name="txt" id="txt">{{ request.form['txt'] or translation['txt'] }}</textarea>
+    <input type="submit" value="Save">
+    <label for="txtkey">Key</label>
+    <input name="txtkey" id="txtkey"
+      value="{{ request.form['txtkey'] or translation['txtkey'] }}" required>  
+  </form>
+  <hr>
+  <form action="{{ url_for('translator.delete', id=translation['id']) }}" method="translation">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}

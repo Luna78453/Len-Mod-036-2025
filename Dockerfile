@@ -4,8 +4,8 @@ WORKDIR /ecdc
 
 COPY requirements.txt requirements.txt
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . /ecdc
 
-CMD ["waitress-serve",  "--call", "'ecdc:create_app'"]
+CMD ["flask",  "--app", "ecdc", "run"]

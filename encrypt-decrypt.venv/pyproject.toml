@@ -1,6 +1,6 @@
 [project]
 name = "ecdc"
-version = "0.0.2"
+version = "0.0.5"
 description = "Online code encryption and decryiption."
 dependencies = [
     "flask",

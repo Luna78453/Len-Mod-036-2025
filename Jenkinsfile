@@ -13,9 +13,9 @@ pipeline{
         }
         stage('tag the image'){
             steps{
-                script(
+                script{
                     IMAGE_TAG = 'latest'
-                )
+                }
             }   
         }
         stage('login to ECR'){

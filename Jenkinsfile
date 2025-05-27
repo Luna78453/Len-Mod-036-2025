@@ -20,7 +20,7 @@ pipeline{
         }
         stage('login to ECR'){
             steps{
-                withAWS(region: "$(env.AWS_REGION)", credentials: 'aws-creds'){
+                withAWS(region: "${env.AWS_REGION}", credentials: 'aws-creds'){
                     powershell'''
                     $ecrLogin - aws ecr get-login-password --region $env.AWS-REGION
 

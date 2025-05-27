@@ -22,9 +22,9 @@ pipeline{
             steps{
                 withAWS(region: "${env.AWS_REGION}", credentials: 'aws-creds'){
                     powershell'''
-                    $ecrLogin - aws ecr get-login-password --region $env.AWS-REGION
+                    $ecrLogin - aws ecr get-login-password --region ${env.AWS-REGION}
 
-                    docker login --username AWS --password $ecrLogin https://916965752431.dkr.ecr.us-east-2.amazonaws.com/lenmod/ecdc
+                    docker login --username AWS --password-stdin $ecrLogin https://916965752431.dkr.ecr.us-east-2.amazonaws.com/lenmod/ecdc
                     '''
                 }
             }
@@ -32,8 +32,8 @@ pipeline{
         stage('Build Docker image'){
             steps{
                 powershell '''
-                docker build -t $env.IMAGE_NAME:$env.IMAGE_TAG .
-                docker tag $env.IMAGE_NAME:$env.IMAGE_TAG 916965752431.dkr.ecr.us-east-2.amazonaws.com/lenmod/ecdc:latest
+                docker build -t ${env.IMAGE_NAME}:${env.IMAGE_TAG} .
+                docker tag ${env.IMAGE_NAME}:${env.IMAGE_TAG} 916965752431.dkr.ecr.us-east-2.amazonaws.com/lenmod/ecdc:latest
                 '''
             }
         }

@@ -12,4 +12,4 @@ RUN flask --app ecdc init-db
 ENV PORT=5000
 
 EXPOSE 5000
-CMD ["flask", "--app", "ecdc", "run"]
+CMD ["waitress-serve", "--port", "5000", "--call", "ecdc:create_app"]

@@ -1,0 +1,16 @@
+blinker==1.9.0
+build==1.2.2.post1
+click==8.2.0
+coverage==7.8.1
+-e git+ssh://git@github.com/Luna78453/Len-Mod-036-2025.git@1404975a716149fea627f89420bf10aa801af7bf#egg=ecdc&subdirectory=encrypt-decrypt.venv
+Flask==3.1.1
+iniconfig==2.1.0
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+packaging==25.0
+pluggy==1.6.0
+pyproject_hooks==1.2.0
+pytest==8.3.5
+waitress==3.0.2
+Werkzeug==3.1.3

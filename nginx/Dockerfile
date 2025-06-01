@@ -2,6 +2,6 @@ FROM nginx
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-COPY nginx.conf /etc/ningx/conf.d/
+COPY nginx.conf /etc/nginx/conf.d/
 
 CMD ["nginx", "-g", "daemon off;"]

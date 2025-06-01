@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.11
 
 WORKDIR /app
 
@@ -9,7 +9,5 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 RUN flask --app ecdc init-db
 
-ENV PORT=5000
-
+CMD ["waitress-serve", "--port=5000", "--call", "ecdc:create_app"]
 EXPOSE 5000
-CMD ["waitress-serve", "--port=5000", "--host", "127.0.0.1", "--call", "ecdc:create_app"]

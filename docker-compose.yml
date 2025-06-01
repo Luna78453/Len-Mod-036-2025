@@ -1,7 +1,7 @@
 services:
   flask:
-    build: .
-    container_name: ecdc-flask
+    build: ./flask
+    container_name: flask
     restart: always
     environment:
       - APP_NAME=EcdcFlask
@@ -11,7 +11,9 @@ services:
 
   nginx:
     build: ./nginx
-    container_name: nginx_serv
+    container_name: nginx
     restart: always
     ports:
-      -"80:80"
+      - "88:88" 
+    expose:
+      - 88
